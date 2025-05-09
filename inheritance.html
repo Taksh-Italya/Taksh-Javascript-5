@@ -1,0 +1,46 @@
+<script>
+
+    // multilevel inheritance
+
+    class A{
+        set(){
+            this.name ='taksh';
+        }
+        get(){
+            console.log(this.name);
+        }
+    }
+
+    class B extends A{
+        set1(){
+            this.mail='T@mail.com'
+            this.set();
+        }
+        get1(){
+            this.get(); 
+            console.log(this.mail);
+                    
+        }
+    }
+
+    class C extends A{
+        set2(){
+            this.set();
+            this.age='21';
+        }
+        get2(){
+            this.get();
+            console.log(this.age);
+            
+        }
+    }
+
+    var abc = new B;
+
+    abc.set1();
+    abc.get1();
+
+    var abc = new C;
+    abc.set2();
+    abc.get2();
+</script>
