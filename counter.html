@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="res">00:00:00:00</h1>
+
+    <div class="button-group">
+
+    <button onclick="starttimer()">Start</button>
+    <button onclick="clearInterval(time)">Stop</button>
+    <button onclick="resettimer()">Reset</button>
+
+    </div>
+<style>
+    body {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 4.5rem;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px 40px;
+        border-radius: 15px;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+        margin-bottom: 40px;
+    }
+
+    .button-group {
+        display: flex;
+        gap: 20px;
+    }
+
+    button {
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 12px 28px;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    button:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+    }
+</style>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #202431, #b9b8b8);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+            margin-bottom: 40px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        button {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+    </style>
+</body>
+
+    <script>
+        var timer = document.getElementById("res");
+        var time;
+        function starttimer(){
+        
+        var milisecond = 0;
+            second = 0;
+            minute = 0;
+            hour = 0;
+
+            time = setInterval(function(){
+
+                var abc = hour + ":" + minute + ":" + second + ":" + milisecond;
+                milisecond++;
+                timer.innerHTML = abc;
+                milisecond ++;
+                if(milisecond == 100){
+                    milisecond = 0;
+                    second++;
+                }
+            if(second == 60){
+                minute ++;
+                second = 0;
+            }
+            if(minute == 60){
+                hour ++;
+                minute = 0;
+            }
+        }, 10);
+
+        }
+
+        function resettimer(){
+            var milisecond = 0 ;
+            second = 0;
+            minute = 0;
+            hour = 0;
+            clearInterval(time);
+            timer.innerHTML = "00:00:00:00"
+        }
+
+
+    </script>
+</html>
