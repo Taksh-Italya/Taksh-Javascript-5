@@ -1,0 +1,96 @@
+
+<div style="width: 100%; height: 100vh; background-image: url(image/img2.jpeg);  background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center;">
+    <div id="bg" 
+    style="width: 800px; height:500px; background-size: cover; background-position:  center;  display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column; border-radius: 20px; padding: 0px 20px;">
+        <h1 id="name" 
+        style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-style: bold;" ></h1>
+        <h3 id="aunthore"
+        style="font-family:Georgia, 'Times New Roman', Times, serif; "></h3>
+        <p id="date"
+        style="color:yellow;" ></p>
+        <input type="button" onclick="getquotes()" value="NEXT"
+        style="background-color: black; color: white; border: 5; border-color: white; border-radius: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; padding: 15px 30px; cursor: pointer;">
+    </div>
+</div>
+
+<script>
+
+var quotes = [
+
+{
+    name : " Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    aunthore : " Oscar Wilde ",
+    date : "20/04/2023",
+    img : "url(image/i1.jfif) "
+},
+{
+    name : " Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+    aunthore : " Albert Einstein ",
+    date : "19/04/2023",
+    img : "url(image/i2.jfif)"
+},
+{
+    name : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    aunthore : "  Elbert Hubbard ",
+    date : "18/04/2023",
+    img : "url(image/i3.jpg)"
+},
+{
+    name : " Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+    aunthore : " Mae West ",
+    date : "17/04/2023",
+    img : "url(image/i4.jpg)"
+},
+{
+    name : " Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+    aunthore : " Robert Frost ",
+    date : "16/04/2023",
+    img : "url(image/i5.jpg)"
+},
+
+]
+
+    var bg = document.getElementById('bg');
+    bg.style.backgroundImage = quotes[0].img;
+    var name = document.getElementById('name').innerHTML = quotes[0].name;
+    var aunthore= document.getElementById('aunthore').innerHTML = quotes[0].aunthore;
+    var date= document.getElementById('date').innerHTML = quotes[0].date;
+
+    var i = 1 ;
+
+    function getquotes(){
+        if(i == quotes.length){
+            i = 0;
+        }
+        
+    
+    bg.style.backgroundImage = quotes[i].img;
+    var name = document.getElementById('name');
+    var aunthore= document.getElementById('aunthore');
+    var date= document.getElementById('date');
+    i++;
+    }
+
+    function displayQuote(index){
+        bg.style.backgroundImage = quotes[index].img;
+        name = innerHTML = quotes[index].name;
+        aunthore = innerHTML = quotes[index].aunthore;
+        date = innerHTML = quotes[index].date;
+    }
+
+    displayQuote(i);
+
+    i++;
+
+    var getquotes = setInterval(function(){
+        if(i == quotes.length){
+            i = 0;
+        }
+
+        displayQuote(i);
+
+        i++;
+    },5000);
+
+
+</script>
